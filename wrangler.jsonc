@@ -1,5 +1,5 @@
 {
   "name": "sedori-api",
   "main": "worker.js",
-  "compatibility_date": "2026-08-25"
+  "compatibility_date": "2026-08-24"
 }
