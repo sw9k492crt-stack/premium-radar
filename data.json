@@ -1,0 +1,81 @@
+{
+  "updated_at": "2026-08-24 19:20",
+  "items": [
+    {
+      "id": "storm",
+      "rank": "S",
+      "category": "ポケカ",
+      "title": "ストームエメラルダ 1BOX",
+      "retail": 6000,
+      "market_low": 15000,
+      "market_high": 23500,
+      "reason": "抽選販売が複数店舗で発生。二次流通価格も定価を大きく上回る出品が目立つ。",
+      "stores": [
+        {
+          "id": "storm-shizuoka",
+          "name": "カードラボ静岡店",
+          "area": "静岡市",
+          "type": "静岡",
+          "deadline": "2026-08-25T23:59:00+09:00",
+          "method": "公式Xフォロー＋対象ポストをリポスト。当選者へDM。",
+          "purchase_period": "8/28〜8/31",
+          "url": "https://www.c-labo.jp/shop/shizuoka/blog/614651/"
+        },
+        {
+          "id": "storm-hamamatsu",
+          "name": "カードラボ浜松店",
+          "area": "浜松市",
+          "type": "静岡",
+          "deadline": "2026-08-23T23:59:00+09:00",
+          "method": "公式Xフォロー＋リポスト。",
+          "purchase_period": "8/27〜8/30",
+          "url": "https://www.c-labo.jp/blog/613500/"
+        }
+      ]
+    },
+    {
+      "id": "start100",
+      "rank": "A",
+      "category": "ポケカ",
+      "title": "スタートデッキ100 バトルコレクション",
+      "retail": 891,
+      "market_low": 977,
+      "market_high": 4400,
+      "reason": "再販分でも抽選化。相場幅が大きいため利益目的の判断は慎重。",
+      "stores": [
+        {
+          "id": "start100-shizuoka",
+          "name": "カードラボ静岡店",
+          "area": "静岡市",
+          "type": "静岡",
+          "deadline": "2026-08-25T23:59:00+09:00",
+          "method": "公式Xフォロー＋対象ポストをリポスト。当選者へDM。",
+          "purchase_period": "8/28〜8/31",
+          "url": "https://www.c-labo.jp/shop/shizuoka/blog/614651/"
+        }
+      ]
+    },
+    {
+      "id": "hinu",
+      "rank": "B",
+      "category": "ガンプラ",
+      "title": "RG 1/144 Hi-νガンダム",
+      "retail": 4950,
+      "market_low": 6000,
+      "market_high": 7500,
+      "reason": "再販抽選実績あり。手数料・送料込みでは薄利になりやすい。",
+      "stores": [
+        {
+          "id": "hinu-gb",
+          "name": "THE GUNDAM BASE ONLINE SHOP",
+          "area": "全国オンライン",
+          "type": "オンライン",
+          "deadline": "2026-08-03T15:59:00+09:00",
+          "method": "プレミアムバンダイ抽選販売。",
+          "purchase_period": "9月発送予定",
+          "url": "https://p-bandai.jp/gundambase/rg-resale2026/"
+        }
+      ]
+    }
+  ]
+}

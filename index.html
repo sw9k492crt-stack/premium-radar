@@ -1,62 +1,10 @@
-<!doctype html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0e14">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="プレ値レーダー">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>プレ値レーダー</title>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0e14"><title>プレ値レーダー v2</title>
 <style>
-:root{--bg:#0b0e14;--card:#151a24;--card2:#1d2430;--text:#f7f8fb;--muted:#9aa4b2;--line:#2a3343}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#080a0e,#101722);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.wrap{max-width:760px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 14px calc(env(safe-area-inset-bottom) + 96px)}
-h1{margin:0;font-size:28px}.sub{font-size:12px;color:var(--muted)}
-.hero,.card{background:rgba(21,26,36,.97);border:1px solid var(--line);border-radius:20px;padding:15px;margin:12px 0}
-.hero strong{font-size:18px}.hero .big{font-size:36px;font-weight:850;margin-top:4px}
-.chips{display:flex;gap:8px;overflow:auto}.chip{white-space:nowrap;border:1px solid var(--line);background:#121722;color:#ddd;border-radius:999px;padding:9px 12px}.chip.active{background:#edf3ff;color:#111}
-.top{display:flex;gap:10px}.rank{font-weight:900;padding:6px 9px;border-radius:10px;height:max-content}.S{background:#5b2424}.A{background:#5a4219}.B{background:#233d5c}.C{background:#343943}
-.title{font-weight:800;line-height:1.35}.meta{font-size:12px;color:var(--muted);margin-top:3px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stat{background:var(--card2);border-radius:13px;padding:10px}.stat span{display:block;font-size:10px;color:var(--muted)}.stat b{font-size:15px}
-.note{font-size:13px;line-height:1.55;color:#d6dbe4;margin-top:10px}.action{font-weight:800;margin-top:10px}
-.links{display:flex;gap:8px;margin-top:12px}.links a,.links button{background:#252d3b;color:#eef2f7;text-decoration:none;border:0;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:700}.links button.primary{background:#edf3ff;color:#111}
-.done{opacity:.55}
-.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:min(760px,100%);display:grid;grid-template-columns:repeat(4,1fr);background:rgba(10,13,20,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:8px 6px calc(env(safe-area-inset-bottom) + 8px)}
-.nav button{background:transparent;border:0;color:#999;padding:8px 2px;font-size:11px}.nav button.active{color:white}
-</style>
-</head>
-<body>
-<div class="wrap">
-<h1>プレ値レーダー</h1>
-<div class="sub">個人用 / 静岡＋全国オンライン</div>
-<div class="hero"><div class="sub">現在の注目商品</div><div class="big" id="count">0</div><strong>S/Aランク優先</strong></div>
-<div class="chips" id="chips"></div>
-<h2 id="sectionTitle">注目</h2>
-<div id="cards"></div>
-</div>
-<div class="nav">
-<button class="active" data-tab="all">🔥 注目</button>
-<button data-tab="shizuoka">📍 静岡</button>
-<button data-tab="online">🌐 通販</button>
-<button data-tab="done">✅ 応募済</button>
-</div>
+:root{--bg:#0b0e14;--p:#151a24;--p2:#1d2430;--t:#f7f8fb;--m:#9aa4b2;--l:#2a3343}*{box-sizing:border-box}body{margin:0;background:linear-gradient(#080a0e,#101722);color:var(--t);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.w{max-width:760px;margin:auto;padding:22px 14px 105px}h1{margin:0;font-size:28px}.sub{font-size:12px;color:var(--m)}.hero,.item{background:var(--p);border:1px solid var(--l);border-radius:20px;padding:15px;margin:12px 0}.stats,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.grid{grid-template-columns:1fr 1fr}.stat{background:var(--p2);border-radius:13px;padding:10px;text-align:center}.stat span{display:block;font-size:10px;color:var(--m)}.chips{display:flex;gap:8px;overflow:auto}.chip{white-space:nowrap;border:1px solid var(--l);background:#121722;color:#ddd;border-radius:999px;padding:9px 12px}.chip.active{background:#edf3ff;color:#111}.head{display:flex;gap:10px}.rank{font-weight:900;padding:6px 9px;border-radius:10px;height:max-content}.S{background:#5b2424}.A{background:#5a4219}.B{background:#233d5c}.title{font-weight:800}.meta{font-size:12px;color:var(--m)}.reason{font-size:13px;line-height:1.5;color:#d3d9e3;margin:10px 0}.store{border-top:1px solid var(--l);padding-top:12px;margin-top:12px}.store small{display:block;color:var(--m);margin-top:4px}.actions{display:flex;gap:8px;margin-top:10px}.actions a,.actions button{border:0;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:750;text-decoration:none}.actions a{background:#252d3b;color:#eef2f7}.actions button{background:#edf3ff;color:#111}.done{background:#254332!important;color:#c8f3d5!important}.closed{opacity:.55}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);display:grid;grid-template-columns:repeat(5,1fr);background:rgba(10,13,20,.96);padding:8px 5px}.nav button{background:transparent;border:0;color:#999;padding:8px 1px;font-size:10px}.nav .active{color:white}
+</style></head><body><div class="w"><h1>プレ値レーダー v2</h1><div class="sub" id="updated">読み込み中...</div><div class="hero"><b>今日やること</b><div class="stats"><div class="stat"><b id="openCount">0</b><span>受付中</span></div><div class="stat"><b id="urgentCount">0</b><span>24時間以内</span></div><div class="stat"><b id="doneCount">0</b><span>応募済</span></div></div></div><div id="chips" class="chips"></div><h2 id="sectionTitle">受付中</h2><div id="list"></div></div>
+<div class="nav"><button class="active" data-tab="open">🔥受付中</button><button data-tab="urgent">⏰締切</button><button data-tab="shizuoka">📍静岡</button><button data-tab="online">🌐通販</button><button data-tab="history">🗂履歴</button></div>
 <script>
-let ITEMS=[
-{rank:"S",category:"ポケカ",title:"ストームエメラルダ 1BOX",retail:"6,000円",market:"15,000〜23,500円",note:"抽選優先度が高い。出品価格ベースなので成約価格は要確認。",action:"最優先で抽選応募",area:"静岡・全国",url:"https://www.pokemon-card.com/ex/m6/"},
-{rank:"A",category:"ポケカ",title:"スタートデッキ100 バトルコレクション",retail:"891円",market:"約977〜4,400円",note:"個体差・条件差が大きい。",action:"抽選は応募、仕入れ判断は慎重",area:"静岡",url:"https://www.pokemon-card.com/ex/mc/index.html"},
-{rank:"B",category:"ガンプラ",title:"RG 1/144 Hi-νガンダム",retail:"4,950円",market:"6,000〜7,500円",note:"送料・販売手数料まで含めると薄利になりやすい。",action:"転売目的では優先度低",area:"全国オンライン",url:"https://online.bandai-hobby.net/"},
-{rank:"C",category:"フィギュア",title:"METAL BUILD ガンダムバルバトス",retail:"35,200円",market:"35,000〜37,500円",note:"手数料込みでは利益が出にくい。",action:"利益目的なら見送り",area:"全国オンライン",url:"https://tamashiiweb.com/"}
-];
-let currentTab="all", currentCat="すべて";
-const done=JSON.parse(localStorage.getItem("pr_done")||"{}");
-function save(){localStorage.setItem("pr_done",JSON.stringify(done));render()}
-function renderChips(){const cats=["すべて",...new Set(ITEMS.map(x=>x.category))];chips.innerHTML=cats.map(c=>`<button class="chip ${c===currentCat?'active':''}" onclick="currentCat='${c}';render()">${c}</button>`).join("")}
-function render(){renderChips();let a=[...ITEMS];if(currentCat!=="すべて")a=a.filter(x=>x.category===currentCat);if(currentTab==="shizuoka")a=a.filter(x=>x.area.includes("静岡"));if(currentTab==="online")a=a.filter(x=>x.area.includes("オンライン")||x.area.includes("全国"));if(currentTab==="done")a=a.filter((_,i)=>done[i]);count.textContent=a.filter(x=>x.rank==="S"||x.rank==="A").length;sectionTitle.textContent={all:"今日の注目",shizuoka:"静岡県内",online:"全国オンライン",done:"応募済み"}[currentTab];cards.innerHTML=a.map((x,i)=>`<div class="card ${done[i]?'done':''}"><div class="top"><div class="rank ${x.rank}">${x.rank}</div><div><div class="title">${x.title}</div><div class="meta">${x.category} ・ ${x.area}</div></div></div><div class="grid"><div class="stat"><span>定価</span><b>${x.retail}</b></div><div class="stat"><span>相場目安</span><b>${x.market}</b></div></div><div class="note">${x.note}</div><div class="action">${x.action}</div><div class="links"><a href="${x.url}" target="_blank">公式情報</a><button class="primary" onclick="done[${i}]=!done[${i}];save()">${done[i]?'応募済み ✓':'応募済みにする'}</button></div></div>`).join("")||'<div class="sub">該当情報なし</div>'}
-document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");currentTab=b.dataset.tab;render()});
-if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
-render();
-</script>
-</body></html>
+let DB={items:[]},tab="open",cat="すべて";const KEY="premium_done_v2",done=JSON.parse(localStorage.getItem(KEY)||"{}"),yen=n=>new Intl.NumberFormat("ja-JP").format(n)+"円";function rem(d){return new Date(d)-new Date()}function save(id){done[id]=!done[id];localStorage.setItem(KEY,JSON.stringify(done));render()}function flat(){let a=[];DB.items.forEach(i=>i.stores.forEach(s=>a.push({item:i,store:s})));return a}function chipsRender(){let a=["すべて",...new Set(DB.items.map(x=>x.category))];chips.innerHTML=a.map(c=>`<button class="chip ${c===cat?"active":""}" onclick="cat='${c}';render()">${c}</button>`).join("")}function dl(d){let h=Math.floor(rem(d)/3600000);if(h<0)return"終了";if(h<24)return`残り${Math.max(0,h)}時間`;if(h<72)return`残り${Math.floor(h/24)}日`;return new Date(d).toLocaleDateString("ja-JP")}
+function render(){chipsRender();let a=flat();if(cat!=="すべて")a=a.filter(x=>x.item.category===cat);if(tab==="open")a=a.filter(x=>rem(x.store.deadline)>=0);if(tab==="urgent")a=a.filter(x=>rem(x.store.deadline)>=0&&rem(x.store.deadline)<=86400000);if(tab==="shizuoka")a=a.filter(x=>x.store.type==="静岡"&&rem(x.store.deadline)>=0);if(tab==="online")a=a.filter(x=>x.store.type==="オンライン"&&rem(x.store.deadline)>=0);if(tab==="history")a=a.filter(x=>rem(x.store.deadline)<0);a.sort((x,y)=>rem(x.store.deadline)-rem(y.store.deadline));let all=flat();openCount.textContent=all.filter(x=>rem(x.store.deadline)>=0).length;urgentCount.textContent=all.filter(x=>rem(x.store.deadline)>=0&&rem(x.store.deadline)<=86400000).length;doneCount.textContent=Object.values(done).filter(Boolean).length;sectionTitle.textContent={open:"受付中",urgent:"24時間以内",shizuoka:"静岡県内",online:"全国オンライン",history:"終了・履歴"}[tab];list.innerHTML=a.map(({item:i,store:s})=>`<div class="item ${rem(s.deadline)<0?"closed":""}"><div class="head"><div class="rank ${i.rank}">${i.rank}</div><div><div class="title">${i.title}</div><div class="meta">${i.category}</div></div></div><div class="grid"><div class="stat"><span>定価</span><b>${yen(i.retail)}</b></div><div class="stat"><span>相場</span><b>${yen(i.market_low)}〜${yen(i.market_high)}</b></div></div><div class="reason">${i.reason}</div><div class="store"><b>${s.name}</b><div class="meta">${s.area} ・ ${dl(s.deadline)}</div><small>締切：${new Date(s.deadline).toLocaleString("ja-JP")}</small><small>応募：${s.method}</small><small>購入：${s.purchase_period}</small><div class="actions"><a href="${s.url}" target="_blank">応募・公式情報</a>${rem(s.deadline)>=0?`<button class="${done[s.id]?"done":""}" onclick="save('${s.id}')">${done[s.id]?"応募済み ✓":"応募済みにする"}</button>`:""}</div></div></div>`).join("")||'<div class="sub">該当情報なし</div>'}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");tab=b.dataset.tab;render()});fetch("./data.json?"+Date.now()).then(r=>r.json()).then(d=>{DB=d;updated.textContent="データ更新："+d.updated_at;render()}).catch(()=>updated.textContent="data.jsonの読み込みに失敗");
+</script></body></html>
