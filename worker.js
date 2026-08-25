@@ -31,7 +31,7 @@ export default {
     // KVに保存された商品データを取得
     if (url.pathname === "/data") {
       try {
-        const raw = await env.SEDORI_DATA.get("items");
+        const raw = await env.SEDORI_KV.get("items");
 
         if (!raw) {
           return Response.json(
